@@ -102,6 +102,8 @@ android {
         versionName "1.0"
         testBuildType System.getProperty('testBuildType', 'debug')
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+        missingDimensionStrategy 'detox', 'full'
     }
 
     splits {
@@ -170,6 +172,8 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    androidTestImplementation(project(path: ":detox"))
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)

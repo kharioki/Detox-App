@@ -78,6 +78,25 @@ module.exports = {
     'android.emu.release': {
       device: 'emulator',
       app: 'android.release'
+    },
+    'android.manual': {
+      'device': 'emulator',
+      'app': 'android.debug',
+      'behavior': {
+        'launchApp': 'manual'
+      },
+      'session': {
+        'autoStart': true,
+        'debugSynchronization': 0,
+        'server': 'ws://localhost:8099',
+        'sessionId': 'test'
+      },
+      'test-runner': {
+        'args': {
+          'testTimeout': 999999
+        }
+      },
+      'artifacts': false
     }
   }
 };
