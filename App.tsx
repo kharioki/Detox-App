@@ -10,7 +10,6 @@ import type {PropsWithChildren} from 'react';
 import {
   Button,
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -19,6 +18,7 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import Users from './components/Users';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -63,9 +63,7 @@ function App(): JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
+      <View style={backgroundStyle}>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
@@ -78,8 +76,11 @@ function App(): JSX.Element {
               onPress={() => console.log('The button has been pressed')}
             />
           </Section>
+          <Section title="Response">
+            <Users isDarkMode={isDarkMode} />
+          </Section>
         </View>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }
