@@ -8,6 +8,7 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -17,13 +18,7 @@ import {
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -77,6 +72,11 @@ function App(): JSX.Element {
           }}>
           <Section title="Wassup Tony">
             <Text style={styles.highlight}>Happy Tuesday </Text>
+            <Button
+              testID="ButtonID"
+              title="Press me"
+              onPress={() => console.log('The button has been pressed')}
+            />
           </Section>
         </View>
       </ScrollView>
